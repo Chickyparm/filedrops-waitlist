@@ -1,210 +1,385 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FieldOps — Built for Real Work</title>
-  <meta name="description" content="FieldOps helps local service pros run jobs, invoices, and follow-ups on autopilot. Join the early access waitlist." />
-
-  <meta property="og:title" content="FieldOps — Built for Real Work" />
-  <meta property="og:description" content="Jobs. Invoices. Follow-ups. Automations. Join early access." />
-  <meta property="og:type" content="website" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>RED DOT — Field Ops, Automated</title>
+  <meta name="description" content="RED DOT helps service pros run jobs, invoices, and follow-ups with clean automation. Join early access."/>
+  <meta property="og:title" content="RED DOT — Field Ops, Automated"/>
+  <meta property="og:description" content="Jobs. Invoices. Follow-ups. Clean automations. Join early access."/>
+  <meta property="og:type" content="website"/>
 
   <style>
     :root{
-      --bg0:#070A0F;
-      --bg1:#0B1020;
-      --panel: rgba(255,255,255,.055);
-      --panel2: rgba(255,255,255,.08);
-      --stroke: rgba(255,255,255,.10);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.62);
-      --brand: #7DE3FF;
-      --brand2:#B8FFDA;
-      --danger:#FF5C5C;
-      --radius: 18px;
-      --shadow: 0 18px 70px rgba(0,0,0,.55);
+      --bg0:#06070B;
+      --bg1:#0B0D14;
+      --glass:rgba(255,255,255,.06);
+      --glass2:rgba(255,255,255,.085);
+      --stroke:rgba(255,255,255,.10);
+      --stroke2:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.62);
+      --muted2:rgba(255,255,255,.48);
+      --red:#FF2D2D;
+      --red2:#FF5A5A;
+      --ok:#3DFF9A;
+      --shadow: 0 30px 120px rgba(0,0,0,.72);
+      --shadow2: 0 18px 70px rgba(0,0,0,.55);
+      --r:22px;
+      --r2:16px;
       --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: var(--font);
-      color: var(--text);
+      font-family:var(--font);
+      color:var(--text);
       background:
-        radial-gradient(1200px 650px at 15% -10%, rgba(125,227,255,.18), transparent 55%),
-        radial-gradient(900px 520px at 85% 15%, rgba(184,255,218,.14), transparent 60%),
-        radial-gradient(900px 700px at 45% 110%, rgba(255,255,255,.06), transparent 60%),
-        linear-gradient(180deg reopen var(--bg1), var(--bg0));
-      min-height:100vh;
+        radial-gradient(1200px 700px at 15% -10%, rgba(255,45,45,.16), transparent 55%),
+        radial-gradient(900px 600px at 90% 10%, rgba(255,255,255,.07), transparent 60%),
+        radial-gradient(900px 700px at 45% 110%, rgba(255,45,45,.09), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg0));
+      overflow-x:hidden;
     }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:1120px; margin:0 auto; padding:28px 18px 80px;}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1140px;margin:0 auto;padding:28px 18px 88px}
     .top{
-      display:flex; align-items:center; justify-content:space-between; gap:14px;
-      padding: 6px 0 28px;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:10px 0 26px;
     }
     .brand{
-      display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:.3px;
+      display:flex;align-items:center;gap:12px;
+      font-weight:900;letter-spacing:.3px;
     }
-    .logo{
-      width:36px; height:36px; border-radius:12px;
-      background: linear-gradient(135deg, rgba(125,227,255,.95), rgba(184,255,218,.9));
-      box-shadow: 0 14px 40px rgba(0,0,0,.55);
+    .mark{
+      width:38px;height:38px;border-radius:14px;
+      background: radial-gradient(18px 18px at 30% 35%, rgba(255,255,255,.22), transparent 60%),
+                  linear-gradient(135deg, rgba(255,45,45,1), rgba(255,90,90,.92));
+      box-shadow: 0 18px 55px rgba(255,45,45,.18);
+      border: 1px solid rgba(255,255,255,.12);
+      position:relative;
     }
-    .tag{
-      font-size:13px; color:var(--muted);
-      border: 1px solid var(--stroke);
+    .mark:after{
+      content:"";
+      position:absolute;
+      inset:10px;
+      border-radius:999px;
+      background: rgba(0,0,0,.30);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: inset 0 0 0 1px rgba(255,45,45,.22);
+    }
+    .brandName{display:flex;flex-direction:column;line-height:1}
+    .brandName b{font-size:16px}
+    .brandName span{font-size:12px;color:var(--muted);margin-top:3px;letter-spacing:.2px}
+    .pill{
+      font-size:13px;color:var(--muted);
+      padding:8px 12px;border-radius:999px;
+      border:1px solid var(--stroke);
       background: rgba(255,255,255,.04);
-      padding: 8px 12px;
-      border-radius: 999px;
+      backdrop-filter: blur(10px);
       white-space:nowrap;
     }
+
     .grid{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
+      grid-template-columns: 1.05fr .95fr;
+      gap:18px;
       align-items:start;
     }
-    @media (max-width: 980px){ .grid{grid-template-columns:1fr} .tag{display:none} }
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr}
+      .pill{display:none}
+    }
+
     .card{
       border:1px solid var(--stroke);
-      background: var(--panel);
-      border-radius: var(--radius);
+      background: var(--glass);
+      border-radius: var(--r);
       box-shadow: var(--shadow);
       overflow:hidden;
+      backdrop-filter: blur(14px);
     }
-    .hero{
-      padding: 34px 26px 22px;
+
+    /* HERO */
+    .hero{padding:36px 28px 22px; position:relative;}
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:-120px -120px auto auto;
+      width:520px;height:520px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,45,45,.22), transparent 62%);
+      filter: blur(0px);
+      pointer-events:none;
     }
     h1{
       margin:0;
-      font-size: clamp(34px, 4.6vw, 56px);
+      font-size: clamp(36px, 4.5vw, 58px);
       line-height: 1.03;
-      letter-spacing: -0.7px;
+      letter-spacing: -0.8px;
     }
     .sub{
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 16.5px;
-      line-height: 1.6;
-      max-width: 62ch;
+      margin-top:14px;
+      color:var(--muted);
+      font-size:16.8px;
+      line-height:1.65;
+      max-width: 64ch;
     }
-    .bullets{
-      margin-top: 18px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
+    .badges{
+      margin-top:16px;
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
     }
-    @media (max-width: 560px){ .bullets{grid-template-columns:1fr} }
-    .bullet{
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.035);
-      border-radius: 16px;
-      padding: 12px;
-      display:flex; gap:10px; align-items:flex-start;
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.78);
+      font-size:12.5px;
     }
     .dot{
-      width: 10px; height:10px; border-radius: 999px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 0 0 4px rgba(125,227,255,.12);
-      margin-top: 4px;
-      flex: 0 0 auto;
+      width:8px;height:8px;border-radius:999px;
+      background: linear-gradient(135deg, var(--red), var(--red2));
+      box-shadow: 0 0 0 4px rgba(255,45,45,.12);
     }
-    .bullet b{display:block; font-size:13.5px}
-    .bullet span{display:block; color:var(--muted); font-size:12.5px; margin-top:2px}
+    .bullets{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    @media(max-width:560px){ .bullets{grid-template-columns:1fr} }
+    .bullet{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.045);
+      border-radius: 16px;
+      padding: 12px;
+    }
+    .bullet b{display:block;font-size:13.5px}
+    .bullet span{display:block;margin-top:4px;font-size:12.6px;color:var(--muted)}
     .ctaRow{
-      margin-top: 18px;
+      margin-top:18px;
       display:flex; gap:10px; flex-wrap:wrap; align-items:center;
     }
     .btn{
-      display:inline-flex; align-items:center; gap:10px;
-      border-radius: 14px;
+      border-radius: 15px;
       padding: 11px 14px;
       border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
-      font-weight: 800;
-      font-size: 14px;
+      color:var(--text);
+      font-weight:850;
+      font-size:14px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
       cursor:pointer;
+      transition: transform .15s ease, filter .15s ease, background .15s ease;
     }
+    .btn:hover{background: rgba(255,255,255,.09)}
+    .btn:active{transform: translateY(1px)}
     .btnPrimary{
-      border-color: rgba(125,227,255,.35);
-      background: linear-gradient(135deg, rgba(125,227,255,.28), rgba(184,255,218,.18));
+      border-color: rgba(255,45,45,.36);
+      background: linear-gradient(135deg, rgba(255,45,45,.28), rgba(255,90,90,.14));
     }
-    .btn:hover{ background: rgba(255,255,255,.09) }
-    .btnPrimary:hover{ filter: brightness(1.06) }
-    .fine{ font-size:12.5px; color:var(--muted) }
+    .btnPrimary:hover{filter: brightness(1.07)}
+    .fine{font-size:12.5px;color:var(--muted)}
 
-    .side{ padding: 18px; display:grid; gap: 14px; }
-    .panel{
-      border: 1px solid var(--stroke);
-      background: var(--panel2);
-      border-radius: 16px;
-      padding: 14px;
-    }
-    .panel h3{ margin:0 0 6px; font-size:14px; letter-spacing:.2px }
-    .panel p{ margin:0; color:var(--muted); font-size:13px; line-height:1.5 }
-
-    .mock{
-      display:flex; justify-content:center;
-      padding: 10px 0 2px;
-    }
-    .mock img{
-      width: min(380px, 96%);
-      height:auto;
-      border-radius: 22px;
-      box-shadow: 0 24px 90px rgba(0,0,0,.65);
-      border: 1px solid rgba(255,255,255,.12);
-    }
-
+    /* FORM */
     .formWrap{
-      padding: 14px;
       border-top: 1px solid var(--stroke);
-      background: rgba(0,0,0,.14);
+      background: rgba(0,0,0,.20);
+      padding: 16px 16px 18px;
     }
-    .formTitle{
-      display:flex; justify-content:space-between; gap:10px; align-items:baseline;
+    .formHead{
+      display:flex;justify-content:space-between;align-items:baseline;gap:10px;
       padding: 10px 10px 14px;
     }
-    .formTitle b{ font-size: 13px }
-    .formTitle span{ color: var(--muted); font-size: 12px }
-
-    form{
-      display:grid;
-      gap: 10px;
-      padding: 0 10px 14px;
-    }
-    .row{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    @media (max-width: 560px){ .row{grid-template-columns:1fr} }
-    input, select{
+    .formHead b{font-size:13px;letter-spacing:.2px}
+    .formHead span{font-size:12px;color:var(--muted)}
+    form{display:grid;gap:10px;padding:0 10px 12px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media(max-width:560px){.row{grid-template-columns:1fr}}
+    input,select{
       width:100%;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 15px;
+      border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
-      color: var(--text);
+      color:var(--text);
       padding: 12px 12px;
       font-size: 14px;
-      outline: none;
+      outline:none;
+      transition: border-color .15s ease, background .15s ease;
     }
-    input::placeholder{ color: rgba(255,255,255,.35) }
-    select{ color: rgba(255,255,255,.85) }
-    .submitRow{
-      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
-      margin-top: 2px;
+    input:focus,select:focus{
+      border-color: rgba(255,45,45,.40);
+      background: rgba(255,255,255,.075);
     }
-    .mini{
+    input::placeholder{color:rgba(255,255,255,.35)}
+    .submitRow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .mini{font-size:12px;color:var(--muted)}
+    .hidden{display:none!important;}
+
+    /* RIGHT COLUMN */
+    .right{
+      padding:18px;
+      display:grid;
+      gap:14px;
+    }
+    .panel{
+      border:1px solid var(--stroke);
+      background: var(--glass2);
+      border-radius: var(--r2);
+      padding:14px;
+      box-shadow: var(--shadow2);
+      backdrop-filter: blur(14px);
+    }
+    .panel h3{margin:0 0 6px;font-size:14px;letter-spacing:.2px}
+    .panel p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+    .metrics{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+    .metric{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      border-radius: 16px;
+      padding: 12px;
+    }
+    .metric .v{font-weight:900;font-size:18px}
+    .metric .k{margin-top:4px;color:var(--muted);font-size:12px}
+
+    /* PREMIUM PHONE MOCK (pure CSS) */
+    .phoneStage{
+      margin-top: 10px;
+      display:flex;
+      justify-content:center;
+      padding: 6px 0 2px;
+    }
+    .phone{
+      width: min(410px, 96%);
+      border-radius: 34px;
+      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: 0 26px 120px rgba(0,0,0,.70);
+    }
+    .bezel{
+      border-radius: 28px;
+      background: #06070b;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .screen{
+      border-radius: 22px;
+      overflow:hidden;
+      background:
+        radial-gradient(600px 320px at 25% -10%, rgba(255,45,45,.20), transparent 60%),
+        linear-gradient(180deg, #0B0D14, #070812);
+      min-height: 520px;
+      position:relative;
+    }
+    .status{
+      display:flex;
+      justify-content:space-between;
+      padding: 10px 14px 0;
+      font-family: var(--mono);
+      color: rgba(255,255,255,.70);
+      font-size: 11px;
+      letter-spacing:.2px;
+    }
+    .appTop{
+      padding: 12px 14px 10px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .appTitle{
+      display:flex;flex-direction:column;gap:3px;
+    }
+    .appTitle b{font-size:14px;letter-spacing:.2px}
+    .appTitle span{font-size:12px;color:var(--muted)}
+    .redDot{
+      width: 10px;height:10px;border-radius: 999px;
+      background: linear-gradient(135deg, var(--red), var(--red2));
+      box-shadow: 0 0 0 6px rgba(255,45,45,.12);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+    .kpiRow{
+      padding: 0 14px 12px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    .kpi{
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      padding: 12px;
+    }
+    .kpi .v{font-weight:900;font-size:18px}
+    .kpi .k{margin-top:4px;color:rgba(255,255,255,.62);font-size:11.8px}
+    .list{
+      padding: 0 10px 16px;
+      display:grid;
+      gap:10px;
+    }
+    .item{
+      display:grid;
+      grid-template-columns: 28px 1fr auto;
+      gap:10px;
+      align-items:center;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.16);
+      padding: 12px;
+    }
+    .ico{
+      width: 26px;height:26px;border-radius: 10px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      display:grid;place-items:center;
+      color: rgba(255,255,255,.70);
+      font-family: var(--mono);
       font-size: 12px;
-      color: var(--muted);
     }
-    .footer{
-      padding: 14px 26px 20px;
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      color: var(--muted);
-      font-size: 12px;
+    .itMain b{display:block;font-size:12.8px}
+    .itMain span{display:block;margin-top:3px;font-size:11.6px;color:rgba(255,255,255,.60)}
+    .pillSmall{
+      font-size: 11px;
+      font-weight: 800;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.75);
+      white-space:nowrap;
+    }
+    .pillRed{
+      border-color: rgba(255,45,45,.28);
+      background: rgba(255,45,45,.12);
+      color: rgba(255,180,180,.92);
+    }
+    .pillOk{
+      border-color: rgba(61,255,154,.24);
+      background: rgba(61,255,154,.10);
+      color: rgba(188,255,221,.92);
     }
 
-    /* hide netlify spam honeypot */
-    .hidden{ display:none !important; }
+    /* FOOTER */
+    .footer{
+      padding: 14px 28px 20px;
+      display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+      color:var(--muted2);
+      font-size:12px;
+      border-top: 1px solid rgba(255,255,255,.06);
+      background: rgba(0,0,0,.10);
+    }
+
+    /* subtle reveal */
+    .reveal{opacity:0; transform: translateY(10px); transition: opacity .55s ease, transform .55s ease}
+    .reveal.show{opacity:1; transform: translateY(0)}
   </style>
 </head>
 
@@ -212,64 +387,69 @@
   <div class="wrap">
     <div class="top">
       <div class="brand">
-        <div class="logo"></div>
-        <div>FieldOps</div>
+        <div class="mark"></div>
+        <div class="brandName">
+          <b>RED DOT</b>
+          <span>Field ops, automated</span>
+        </div>
       </div>
-      <div class="tag">Early access • iOS-first • Built for service pros</div>
+      <div class="pill">Early access • iOS-first • built for service pros</div>
     </div>
 
     <div class="grid">
-      <div class="card">
+      <!-- LEFT -->
+      <div class="card reveal">
         <div class="hero">
-          <h1>Run jobs, invoices,<br/>and follow-ups—cleanly.</h1>
+          <h1>Clean operations.<br/>Faster payments.</h1>
           <div class="sub">
-            FieldOps is built for local service businesses that want fewer no-shows,
-            faster payments, and less admin. Simple where it should be, powerful where it matters.
+            RED DOT is a modern ops app for local service businesses.
+            Schedule jobs, manage invoices, and automate follow-ups — without clunky software.
+          </div>
+
+          <div class="badges">
+            <span class="badge"><span class="dot"></span> Private by default</span>
+            <span class="badge"><span class="dot"></span> Built for iPhone</span>
+            <span class="badge"><span class="dot"></span> Automations that matter</span>
           </div>
 
           <div class="bullets">
-            <div class="bullet"><div class="dot"></div><div><b>Automations that make money</b><span>Reminders, review requests, overdue nudges.</span></div></div>
-            <div class="bullet"><div class="dot"></div><div><b>Invoices customers understand</b><span>Clear totals, due dates, one-tap message.</span></div></div>
-            <div class="bullet"><div class="dot"></div><div><b>Field-friendly UX</b><span>Fast, minimal taps, no clutter.</span></div></div>
-            <div class="bullet"><div class="dot"></div><div><b>Private by default</b><span>No ads. No data selling. Period.</span></div></div>
+            <div class="bullet"><b>Reduce no-shows</b><span>Automatic reminders at the right time.</span></div>
+            <div class="bullet"><b>Get paid sooner</b><span>Invoices customers understand.</span></div>
+            <div class="bullet"><b>Stay organized</b><span>Jobs, clients, templates — all clean.</span></div>
+            <div class="bullet"><b>Look professional</b><span>Messages that feel high-end.</span></div>
           </div>
 
           <div class="ctaRow">
             <a class="btn btnPrimary" href="#waitlist">Join early access →</a>
-            <span class="fine">Invites go out in batches.</span>
+            <span class="fine">Invites roll out in small batches.</span>
           </div>
         </div>
 
         <div class="formWrap" id="waitlist">
-          <div class="formTitle">
-            <b>Get on the list</b>
-            <span>We’ll email you when your spot opens.</span>
+          <div class="formHead">
+            <b>Join the waitlist</b>
+            <span>Email confirm screen after submit.</span>
           </div>
 
-          <!-- ✅ Netlify Forms (free) + thank-you page -->
+          <!-- ✅ Netlify Forms (free) -->
           <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
-            <input type="hidden" name="form-name" value="waitlist" />
+            <input type="hidden" name="form-name" value="waitlist"/>
             <p class="hidden">
-              <label>Don’t fill this out: <input name="bot-field" /></label>
+              <label>Don’t fill this out: <input name="bot-field"/></label>
             </p>
 
             <div class="row">
               <input name="email" type="email" placeholder="Email address" required />
               <select name="trade">
                 <option value="" selected>Business type (optional)</option>
-                <option>HVAC</option>
-                <option>Cleaning</option>
-                <option>Electrical</option>
-                <option>Plumbing</option>
-                <option>Handyman</option>
-                <option>Landscaping</option>
-                <option>Other</option>
+                <option>HVAC</option><option>Cleaning</option><option>Electrical</option>
+                <option>Plumbing</option><option>Handyman</option><option>Landscaping</option><option>Other</option>
               </select>
             </div>
 
             <div class="row">
-              <input name="city" type="text" placeholder="City / State (optional)" />
-              <input name="teamSize" type="text" placeholder="Solo or team size (optional)" />
+              <input name="city" type="text" placeholder="City / State (optional)"/>
+              <input name="teamSize" type="text" placeholder="Solo or team size (optional)"/>
             </div>
 
             <div class="submitRow">
@@ -280,27 +460,92 @@
         </div>
 
         <div class="footer">
-          <div>© <span id="year"></span> FieldOps</div>
+          <div>© <span id="year"></span> RED DOT</div>
           <div>Built for: HVAC • Cleaning • Electrical • Handyman</div>
         </div>
       </div>
 
-      <div class="side">
-        <div class="panel">
-          <h3>App preview</h3>
-          <p>Here’s the vibe: clean dashboard, quick actions, and status that makes sense.</p>
-          <div class="mock">
-            <!-- Put app-mock.png in the same folder as index.html -->
-            <img src="app-mock.png" alt="FieldOps app mockup" />
+      <!-- RIGHT -->
+      <div class="right">
+        <div class="panel reveal">
+          <h3>App preview mockup</h3>
+          <p>Premium, minimal UI with clear status and fast actions.</p>
+
+          <div class="phoneStage">
+            <div class="phone" aria-label="RED DOT app mockup">
+              <div class="bezel">
+                <div class="screen">
+                  <div class="status">
+                    <div>9:41</div>
+                    <div>5G ▮▮▮</div>
+                  </div>
+
+                  <div class="appTop">
+                    <div class="appTitle">
+                      <b>RED DOT</b>
+                      <span>Today’s ops</span>
+                    </div>
+                    <div class="redDot" title="Status"></div>
+                  </div>
+
+                  <div class="kpiRow">
+                    <div class="kpi">
+                      <div class="v">4</div>
+                      <div class="k">Jobs today</div>
+                    </div>
+                    <div class="kpi">
+                      <div class="v">$2,480</div>
+                      <div class="k">Outstanding</div>
+                    </div>
+                  </div>
+
+                  <div class="list">
+                    <div class="item">
+                      <div class="ico">J</div>
+                      <div class="itMain">
+                        <b>HVAC Tune-Up</b>
+                        <span>Jordan L. • 10:30 AM</span>
+                      </div>
+                      <div class="pillSmall">Scheduled</div>
+                    </div>
+
+                    <div class="item">
+                      <div class="ico">I</div>
+                      <div class="itMain">
+                        <b>INV-1042</b>
+                        <span>Ava M. • Due tomorrow</span>
+                      </div>
+                      <div class="pillSmall pillRed">Due</div>
+                    </div>
+
+                    <div class="item">
+                      <div class="ico">A</div>
+                      <div class="itMain">
+                        <b>Auto follow-up</b>
+                        <span>Review request queued</span>
+                      </div>
+                      <div class="pillSmall pillOk">Ready</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="panel">
-          <h3>What you’ll get in early access</h3>
-          <p>Jobs, clients, invoices with line items, templates, automations, and a message log.</p>
+        <div class="panel reveal">
+          <h3>What you get in early access</h3>
+          <p>Jobs, clients, invoices with line items, templates, automations, and message history.</p>
+          <div class="metrics">
+            <div class="metric"><div class="v">1-tap</div><div class="k">reminders & messages</div></div>
+            <div class="metric"><div class="v">Auto</div><div class="k">overdue tracking</div></div>
+            <div class="metric"><div class="v">Fast</div><div class="k">field-friendly UX</div></div>
+            <div class="metric"><div class="v">Clean</div><div class="k">no clutter</div></div>
+          </div>
         </div>
 
-        <div class="panel">
+        <div class="panel reveal">
           <h3>Next upgrades</h3>
           <p>Estimates, payment links, recurring jobs, and multi-tech dispatch.</p>
         </div>
@@ -310,6 +555,13 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // subtle reveal animation
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("show"); }});
+    }, { threshold: 0.12 });
+    els.forEach(el=>io.observe(el));
   </script>
 </body>
 </html>
